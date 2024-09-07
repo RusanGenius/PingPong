@@ -48,7 +48,8 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': '184E246C448E0B2A88D604EB9A6A31DF'
+                        'X-API-KEY': 'Y184E246C448E0B2A88D604EB9A6A31DF', // Замените на ваш API ключ
+                        'X-API-SECRET': '1B35D150713F893B0625D02F5A4D540E' // Замените на ваш секретный API ключ
                     },
                     body: JSON.stringify({ prompt: inputText })
                 });
