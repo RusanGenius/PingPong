@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Русан - гений</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            font-family: Arial, sans-serif;
+        }
+
+        input, button {
+            font-size: 1.5em;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Русан - гений</h1>
+    <input type="text" id="textInput" placeholder="Введите текст" />
+    <button onclick="generateText()">Сгенерировать</button>
+    <div id="output" style="color: white; margin-top: 20px;"></div>
+
+    <script>
+        async function generateText() {
+            const inputText = document.getElementById('textInput').value;
+            const outputDiv = document.getElementById('output');
+
+            try {
+                const response = await fetch('https://fusionbrain.ai/api/v1/endpoint', { // Замените 'endpoint' на фактический URL из документации
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': '184E246C448E0B2A88D604EB9A6A31DF'
+                    },
+                    body: JSON.stringify({ prompt: inputText })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Ошибка сети: ' + response.status);
+                }
+
+                const data = await response.json();
+                outputDiv.textContent = data.generated_text; // Замените 'generated_text' на фактический путь в ответе API
+            } catch (error) {
+                console.error('Ошибка:', error);
+                outputDiv.textContent = 'Произошла ошибка при генерации текста.';
+            }
+        }
+    </script>
+</body>
+</html>
