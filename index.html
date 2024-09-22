@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ping Pong</title>
+    <title>Ping Pong Game</title>
     <style>
         body, html {
             margin: 0;
@@ -18,7 +18,7 @@
         #gameCanvas {
             background-color: black;
             display: block;
-            border: 1px solid white; /* Добавляем белую рамку */
+            border: 2px solid white; /* Белая рамка вокруг поля */
         }
 
         #gameOverScreen {
@@ -30,24 +30,29 @@
             display: none;
             justify-content: center;
             align-items: center;
-            background-color: rgba(50, 50, 50, 0.8);
+            background-color: rgba(30, 30, 30, 0.8);
             color: white;
             font-family: Arial, sans-serif;
-            font-size: 24px;
+            font-size: 32px; /* Увеличенный размер шрифта */
             flex-direction: column;
         }
 
         #gameOverMessage {
-            margin-bottom: 20px;
+            margin-bottom: 100px; /* Увеличен отступ для кнопки */
+        }
+
+        #RusanGeniusMessage {
+            margin-bottom: -100px;
+            color: rgb(20 20 20)
         }
 
         #restartButton {
-            padding: 10px 20px;
-            font-size: 18px;
+            padding: 15px 30px; /* Увеличен размер кнопки */
+            font-size: 24px; /* Увеличенный размер текста кнопки */
             cursor: pointer;
             border: none;
-            background-color: white;
-            color: black;
+            background-color: black; /* Чёрный фон кнопки */
+            color: white; /* Белый текст на кнопке */
             border-radius: 5px;
         }
 
@@ -70,11 +75,13 @@
     </style>
 </head>
 <body>
-    <canvas id="gameCanvas" width="400" height="600"></canvas>
+
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
 
     <div id="gameOverScreen">
-        <p id="gameOverMessage"></p>
-        <button onclick="resetGame()">Play again</button>
+        <div id="gameOverMessage">Game Over</div>
+        <div id="RusanGeniusMessage">Rusan is a genius</div>
+        <button id="restartButton">Play Again</button>
     </div>
 
     <script src="game.js"></script>
