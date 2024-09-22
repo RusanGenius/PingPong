@@ -81,8 +81,9 @@ function updateGame() {
     // Рисование объектов
     drawPaddle(playerPaddleX, canvas.height - paddleHeight);
     drawPaddle(computerPaddleX, 0);
-    drawBall();
     drawScore();
+    drawName();
+    drawBall();
 
     requestAnimationFrame(updateGame);
 }
@@ -149,9 +150,9 @@ function drawScore() {
 }
 
 function drawName() {
-    ctx.font = '24px Arial';
-    ctx.fillStyle = 'white';
-    ctx.fillText("Rusan is a genius", 10, 100);
+    ctx.font = '50px Arial';
+    ctx.fillStyle = '#020202';
+    ctx.fillText("Rusan is a genius", 100, 400);
 }
 
 // Обновление скорости компьютера
